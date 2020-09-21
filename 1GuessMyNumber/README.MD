@@ -1,5 +1,5 @@
 # Guess My Number
-A simple CLI game that lets you guess a number your computer randomly selecter
+A simple CLI game that lets you guess a number your computer randomly selected
 
 
 Assignment by : *self assigned*
