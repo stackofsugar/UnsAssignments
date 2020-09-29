@@ -2,8 +2,8 @@
 
 class Binary {
     private:
-        int BIN_TYPE, BIN_VALUE, _BIN_BUFFER, _BIN_REMAINDER;
-        int* BIN_CONTAINER;
+        int bin_type, bin_value, _bin_buffer, _bin_remainder;
+        int* bin_container;
     public:
         Binary(int);
         ~Binary();

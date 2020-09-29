@@ -13,16 +13,16 @@ do {
     cin >> choice;
 
         if (choice == 1){
-            int BIN_CHOICE, *BIN_RESULT;
+            int bin_choice, *bin_result;
             do {
             cout << "Put in the decimal integer you want to convert into binary: ";
-            cin >> BIN_CHOICE;
-            Binary BIN_OBJECT(BIN_CHOICE);
-            BIN_RESULT = BIN_OBJECT.BinOperate();
+            cin >> bin_choice;
+            Binary BIN_OBJECT(bin_choice);
+            bin_result = BIN_OBJECT.BinOperate();
 
             cout << "The result is: \n> ";
             for (int i = 0; i <= BIN_OBJECT.CheckBinType(); i++){
-                cout << *(BIN_RESULT + i);
+                cout << *(bin_result + i);
             }
             cout << " <" << endl;
 

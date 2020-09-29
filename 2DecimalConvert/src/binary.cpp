@@ -2,27 +2,27 @@
 using namespace std;
 
 Binary::Binary(int x){
-    BIN_VALUE = x;
-    BIN_CONTAINER = nullptr;
+    bin_value = x;
+    bin_container = nullptr;
 }
 
 int* Binary::BinOperate(){
-    BIN_TYPE = log2(BIN_VALUE);
-    BIN_CONTAINER = new int[BIN_TYPE + 1];
+    bin_type = log2(bin_value);
+    bin_container = new int[bin_type + 1];
 
-    for(int i = BIN_TYPE; i >= 0; i--){
-        _BIN_REMAINDER = BIN_VALUE % 2;
-        BIN_VALUE = BIN_VALUE / 2;
-        BIN_CONTAINER[i] = _BIN_REMAINDER;
+    for(int i = bin_type; i >= 0; i--){
+        _bin_remainder = bin_value % 2;
+        bin_value = bin_value / 2;
+        bin_container[i] = _bin_remainder;
     }
 
-    return BIN_CONTAINER;
+    return bin_container;
 }
 int Binary::CheckBinType(){
-    return BIN_TYPE;
+    return bin_type;
 }
 Binary::~Binary(){
-    if (BIN_CONTAINER != nullptr){
-        delete[] BIN_CONTAINER;
+    if (bin_container != nullptr){
+        delete[] bin_container;
     }
 }
