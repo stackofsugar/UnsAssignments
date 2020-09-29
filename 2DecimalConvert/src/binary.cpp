@@ -3,9 +3,12 @@ using namespace std;
 
 Binary::Binary(int x){
     BIN_VALUE = x;
+    BIN_CONTAINER = nullptr;
 }
+
 int* Binary::BinOperate(){
     BIN_TYPE = log2(BIN_VALUE);
+    BIN_CONTAINER = new int[BIN_TYPE + 1];
 
     for(int i = BIN_TYPE; i >= 0; i--){
         _BIN_REMAINDER = BIN_VALUE % 2;
