@@ -6,6 +6,7 @@ class Binary {
         int* BIN_CONTAINER;
     public:
         Binary(int);
+        ~Binary();
         int* BinOperate();
         int CheckBinType();
 };

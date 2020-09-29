@@ -21,3 +21,8 @@ int* Binary::BinOperate(){
 int Binary::CheckBinType(){
     return BIN_TYPE;
 }
+Binary::~Binary(){
+    if (BIN_CONTAINER != nullptr){
+        delete[] BIN_CONTAINER;
+    }
+}
