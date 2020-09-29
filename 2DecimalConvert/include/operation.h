@@ -12,7 +12,15 @@ class Binary {
 };
 
 class Octal {
-
+    private:
+        int oct_type, oct_value, oct_buffer, oct_remainder;
+        int* oct_container;
+    public:
+        Octal(int);
+        ~Octal();
+        int* OctOperate();
+        int CheckOctType();
+        uint Logbn(uint,uint);
 };
 
 class Hex {
