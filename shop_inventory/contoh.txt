@@ -1,0 +1,2 @@
+Masukkan jumlah buku yang ingin anda input >2 
+Masukkan jumlah tas yang ingin anda input >2
