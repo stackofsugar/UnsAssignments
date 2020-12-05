@@ -1,0 +1,67 @@
+                                        ================================
+                                           Selamat Datang di Toko Kami
+                                        ================================
+
+                          Silahkan berbelanja kebutuhan rumah tangga yang diperlukan
+                                           Dijamin murah dan meriah!!!
+
+                  Khusus tahun ini, gunakan kartu member untuk mendapatkan diskon sebesar 20%.
+                                  Kami juga memiliki promo bulan ini. Tertarik?
+
+
+  Barang yang saat ini tersedia:
+   1. Wajan                     -> Rp 30.000            6. Rinso Detergen Cair Anti Noda 750 ml -> Rp 15.000
+   2. Saringan                  -> Rp 3.000             7. Sendok                               -> Rp 1.500
+   3. Panci                     -> Rp 20.000            8. Garpu                                -> Rp 1.500
+   4. Sunlight Lemon 800 ml     -> Rp 12.000            9. Promo
+   5. Minyak Kelapa Sawit 1L    -> Rp 12.000
+
+  Silahkan memasukan kode barang yang ingin dibeli: 9
+   Promo:
+    1. 2 Wajan                  -> Rp 400
+    2. 3 Panci                  -> Rp 450
+    3. 2 Minyak Kelapa Sawit    -> Rp 280
+       Gratis 1 Sunlight Lemon
+    4. 4 Panci Gratis 1 Wajan   -> Rp 900
+    5. Back
+
+    Masukan kode promo: 1
+    Ingin berbelanja lagi?
+     1. Barang yang lain        2. Promo lagi   3. Tidak
+    Pilihan anda: 3
+
+  Anda telah berbelanja:
+  Promo 2 Wajan                                                 = Rp 40000
+  Ingin menambah?
+   1. Ya        2. Tidak
+  Pilihan anda: 2
+
+  Pilih metode pembayaran:
+   1. Tunai     2. Kartu Member
+  Pilihan anda: 2
+   Total yang harus dibayar                                     = Rp 32000
+   Uang yang dibayar                                            = Rp 40000
+   Kembalian                                                    = Rp 8000
+
+
+  Ingin mencetak nota?
+   1. Ya        2. Tidak
+  Pilihan anda: 1
+    _______________________
+   |                                                                   |
+   |                            Was-Was Shop                           |
+   |                Jl. Kebangsaan Indonesia Raya No. 98               |
+   |              Telp 021-XXXXX Kota Baru Jadi, Indonesia             |
+   |  ---------------------------------------------------------------  |
+   |  Nama                                     qty   Harga      Total  |
+   |  ---------------------------------------------------------------  |
+   |  Promo 2 Wajan                             1    40000      40000  |
+   |  ---------------------------------------------------------------  |
+   |  Total                                             : Rp 32000     |
+   |  Tunai                                             : Rp 40000     |
+   |  Kembali                                           : Rp 8000      |
+   |  ---------------------------------------------------------------  |
+   |  Operator: Anda                                                   |
+   |  Terima kasih atas kunjungannya dan periksa barang sebelum keluar |
+   |  Barang yang telah dibeli tidak dapat ditukar atau dikembalikan   |
+   |_______________________|
