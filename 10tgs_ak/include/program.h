@@ -31,8 +31,15 @@
 */
 enum OperationChoice {
     och_PrintList = 1,
-    och_DeleteList
+    och_ModifyList,
+    och_ExportList
 } operation_choice;
+
+enum ModificationChoice {
+    mch_DeleteList = 1,
+    mch_InsertList,
+    mch_ChangeValue
+} modification_choice;
 
 /*
  Kode return sederhana untuk mempermudah development
