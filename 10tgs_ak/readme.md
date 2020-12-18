@@ -39,8 +39,12 @@ Building dari project ini dibangun diatas build system [CMake](https://cmake.org
 Dapatkan sampel STDOUT dan STDIN [di sini](https://pastebin.com/ij0efmuz)
 
 ![1](https://cdn.discordapp.com/attachments/758566679289790464/789557533794107477/unknown.png)
+
 ![2](https://cdn.discordapp.com/attachments/758566679289790464/789557581730283570/unknown.png)
+
 ![3](https://cdn.discordapp.com/attachments/758566679289790464/789557630129012736/unknown.png)
+
 ![4](https://cdn.discordapp.com/attachments/758566679289790464/789557682154504212/unknown.png)
+
 ![5](https://cdn.discordapp.com/attachments/758566679289790464/789557904809394226/unknown.png)
 
