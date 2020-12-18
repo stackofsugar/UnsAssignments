@@ -3,6 +3,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.16)
 set(srcfiles
     "main"
     "program"
+    "linkedlist"
 )
 
 set(srcfile "")

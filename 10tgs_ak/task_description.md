@@ -8,8 +8,8 @@
 
 Buatlah sebuah program yang dapat membandingkan dua file. Setiap ada baris 
 yang kontennya sama, maka akan dimasukkan dalam struktur data tertentu (silahkan 
-gunakan yang menurut Anda cocok). Dal*am membuat program ini, harus menggunakan 
-preprocessor (tentunya tidak termasuk incl*ude library yang dimiliki oleh C)
+gunakan yang menurut Anda cocok). Dalam membuat program ini, harus menggunakan 
+preprocessor (tentunya tidak termasuk include library yang dimiliki oleh C)
 
 **Kondisi Penilaian:**
  1. Nilai akan semakin tinggi ketika preprocessor yang kalian gunakan semakin kompleks

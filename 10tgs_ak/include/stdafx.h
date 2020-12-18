@@ -8,5 +8,6 @@
 #  include <stdlib.h>   // untuk beberapa fungsi asik nan useful
 #  include <string.h>   // manipulasi cstring
 #  include "program.h"
+#  include "linkedlist.h"
 
 #endif // STDAFX_H_

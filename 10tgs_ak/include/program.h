@@ -23,14 +23,15 @@
 # define DEBX(args_) printf args_       // <- eksperimen pribadi
 #else
 # define DEB(args_)
+# define DEBX(args_)
 #endif // DEBUGMODE_M
 
 /*
  Enum (atau beberapa enum) untuk mempermudah decision making
 */
 enum OperationChoice {
-    eCompareFile = 1,
-    eFileManip
+    och_PrintList = 1,
+    och_DeleteList
 } operation_choice;
 
 /*
@@ -50,6 +51,22 @@ enum ReturnCodes {
  @param in_floor Batas bawah masukan 
  @return int, berupa hasil scan masukan keyboard
 */
-int intScan(int in_ceiling, int in_floor);
+int intScan(int in_ceiling, int in_floor){
+    int buffer;
+    while(1){
+        if(scanf("%d%*c", &buffer)){
+            if(buffer < in_floor){
+                printf("Masukan terlalu rendah! Coba lagi: ");
+            } else if(buffer > in_ceiling){
+                printf("Masukan terlalu tinggi! Coba lagi: ");
+            } else {
+                return buffer;
+            }
+        } else {
+            printf("Masukan tidak valid! Coba lagi: ");
+            scanf("%*c");
+        }
+    }
+}
 
 #endif // PROGRAM_H_
