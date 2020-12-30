@@ -7,7 +7,7 @@ Building dari project ini dibangun diatas build system [CMake](https://cmake.org
 1. Menggunakan CMake
 	- Membuat sebuah direktori build/ yang berada dalam root project (misal /10tgs_ak/build/) dengan `mkdir build` atau `md build`.
 	- Memindahkan cwd ke direktori tersebut menggunakan `cd build`.
-	- Memulai building project dengan menuliskan `make ..`.
+	- Memulai building project dengan menuliskan `cmake ..`.
 	- Hasil build (executable) akan berada di `../build`.
 	- Beberapa kasus membutuhkan spesifikasi tertentu, semisal pen.definisian kit dan compiler secara spesifik.
 2. Menggunakan gcc Command Line

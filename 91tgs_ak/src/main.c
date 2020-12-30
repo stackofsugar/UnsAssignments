@@ -15,8 +15,7 @@ LinkedList *head = NULL;          // Inisialisasi linked list
 int g_similar_count = 0;
 
 int main(){
-    int operation_choice, 
-        match_hit = 0;
+    int operation_choice;
     char file_name1[40] = "../contoh_textfile/",
          file_name2[40] = "../contoh_textfile/",
          file_name_buffer[40],
@@ -36,21 +35,21 @@ int main(){
     m_file1 = fopen(file_name1, "r");
     m_file2 = fopen(file_name2, "r");
     if(!(m_file1) || !(m_file2)){           // Error checking sederhana
-        printf("File can't be found/opened! Try to re-check your file path. \n");
+        printf("File can't be found/opened! Try to re-check your file name/path. \n");
         return exit_file_cant_be_opened;
     }
     else {
-        while(fgets(line_buffer1, sizeof(line_buffer1), m_file1)
-            && fgets(line_buffer2, sizeof(line_buffer2), m_file2)){
+        fseek(m_file1, 0, SEEK_SET);
+        while(fgets(line_buffer1, sizeof(line_buffer1), m_file1)){
+            while(fgets(line_buffer2, sizeof(line_buffer2), m_file2)){
                 if(!(strcmp(line_buffer1, line_buffer2))){
-                    match_hit++;
-                    DEB("Match -> "); DEB(line_buffer1);                            // Bentuk string masih ber-\n harus dihilangkan supaya lebih tidak membuat stres
-                    // Mari parsing dibawah ini:
-                    line_buffer1[strcspn(line_buffer1, "\n")] = 0;                  // line_buffer2 basically tidak dipakai lagi dari sini
-                    DEBX(("AFTER PARSING: %d. %s\n", match_hit, line_buffer1));
-                    ll_insert(line_buffer1, -1);                                    // menginvoke linkedlist
-                    g_similar_count++;
+                    g_similar_count++;                                          // Mengincrement counter
+                    DEBX(("MATCH #", g_similar_count, ": ", line_buffer1));
+                    line_buffer1[strcspn(line_buffer1, "\n")] = 0;              // Mengenolkan newline di data yang dibaca
+                    ll_insert(line_buffer1, -1);                                // Memasukkan ke linkedlist, mode append
                 }
+            }
+            fseek(m_file2, 0, SEEK_SET);
         }
     }
 
@@ -58,7 +57,7 @@ int main(){
     fclose(m_file2);
     printf("We have found %d similarities \n", g_similar_count);
 
-    while(1){                                                                       // Loop setelah program mendapatkan file buffer (setelah mengolah kedua file)
+    while(1){                                                                   // Loop setelah program mendapatkan file buffer (setelah mengolah kedua file)
         operation_choice = 0;
         printf("Choose your operation choice: \n");
         printf("[1] Print the Similarity List\n");
