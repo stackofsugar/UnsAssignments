@@ -2,7 +2,7 @@
 
 ### Mata Kuliah Konsep Pemrograman Informatika UNS 2020
 
-[Temukan di GitHub](https://github.com/stackofsugar/UnsAssignments/tree/master/10tgs_ak)
+[Temukan di GitHub](https://github.com/stackofsugar/UnsAssignments/tree/master/91tgs_ak)
 
 **Deskripsi Tugas:**
 
