@@ -1,0 +1,13 @@
+Qia merupakan mahasiswa informatika uns. Suatu hari dosen memberikan dia tugas yang unik yaitu masalah fibonacci yang tidak biasa. Jika biasanya bilangan fibonacci merupakan penjumlahan dua angka sebelumnyanya, fibonacci yang tidak biasa ini merupakan penjumlahan tiga angka sebelumnya Bantulah ia menyelesaikan masalah tersebut. Note!!! masalah ini menggunakan index mulai dari 1
+
+Input Format
+
+Input berupa satu angka yaitu n
+0 < n < 10^9
+Constraints
+
+Karena hasil yang sangat besar maka bilangan fibonaccinya di modulo 100000007
+
+Output Format
+
+Output berupa bilangan fibonacci yang tidak biasa ke n
