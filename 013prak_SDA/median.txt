@@ -1,0 +1,46 @@
+Diketahui sebuah wadah uniq akan digunakan menyimpan angka2 bilangan bulat. Wadah dikatakan uniq apabila isinya tidak terdapat bilangan yang sama. Carilah median dari wadah uniq tersebut
+
+Input Format
+
+Baris pertama input yaitu n Baris selanjutnya sebanyak n baris berisi
+
+1 x
+atau
+
+2
+dimana
+
+1 x
+menambahkan angka x ke wadah uniq dan
+
+2
+mengeluarkan median
+
+Constraints
+
+1 < n < 1000001
+Output Format
+
+Berisi satu baris bilangan hasil dari median wadah uniq tiap input berisi angka 2
+
+Sample Input 0
+
+3
+1 2
+1 3
+2
+Sample Output 0
+
+2.5
+Sample Input 1
+
+5
+1 2
+1 3
+1 5
+2
+2
+Sample Output 1
+
+3
+3

@@ -1,0 +1,73 @@
+Diketahui sebuah stadiun membuat sistem untuk pemesanan kursi stadiun. Setiap kursi ditandai dengan empat digit alphanumeric ([a-z]|[A-Z]|[0-9]) yang unik. Kursi yang sudah dipesan tidak dapat dipesan kembali. Setiap orang yang memesan juga hanya dapat memasukkan nama dalam bentuk alphanumeric dengan panjang maksimal 50. Bantulah stadiun tersebut membuat sistem yang dimaksud
+
+Input Format
+
+Baris pertama berupa n. Kemudian input lagi sebanyak n baris selanjutnya. Setiap baris dapat berisi
+
+1 x y
+dengan x merupakan label kursi dan y merupakan nama pemesan (digunakan untuk memesan) atau dapat berisi
+
+2 x 
+dengan x merupakan label kursi (digunakan untuk mengecek kursi)
+
+Constraints
+
+1 < n < 200000
+panjang x == 4
+panjang y <= 100
+Output Format
+
+output saat memesan (kondisi 1) : - kursi berhasil dipesan - kursi sudah dipesan y (y merupakan nama pemesan)
+
+output saat mengecek kursi (kondisi 2): - kursi masih kosong - kursi sudah dipesan y (y merupakan nama pemesan)
+
+Sample Input 0
+
+10
+1 rXjZ rizal
+1 J4RC aji
+2 z16Q
+2 lvsz
+2 rXjZ
+2 Q3bm
+2 J4RC
+1 gUUg rizal
+2 KDjZ
+1 KvxH qia
+Sample Output 0
+
+kursi berhasil dipesan
+kursi berhasil dipesan
+kursi masih kosong
+kursi masih kosong
+kursi sudah dipesan rizal
+kursi masih kosong
+kursi sudah dipesan aji
+kursi berhasil dipesan
+kursi masih kosong
+kursi berhasil dipesan
+Sample Input 1
+
+10
+1 wVj6 2wLyhC9zinlTeOAhAKTyybkkjJjZ0dGJu04xZnAOPgwlKTLMKM
+2 NnbR
+2 uzsp
+1 vLU8 p5j8inveZmvcyWYQ96ULaDZSzYbFZ01n
+1 xZAP Aakvmn
+2 o5sH
+2 6wXF
+2 wVj6
+2 3flq
+2 xZAP
+Sample Output 1
+
+kursi berhasil dipesan
+kursi masih kosong
+kursi masih kosong
+kursi berhasil dipesan
+kursi berhasil dipesan
+kursi masih kosong
+kursi masih kosong
+kursi sudah dipesan 2wLyhC9zinlTeOAhAKTyybkkjJjZ0dGJu04xZnAOPgwlKTLMKM
+kursi masih kosong
+kursi sudah dipesan Aakvmn
