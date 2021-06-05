@@ -53,6 +53,7 @@
         "map": "cpp",
         "set": "cpp",
         "ratio": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "bitset": "c"
     }
 }

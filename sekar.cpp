@@ -1,158 +1,176 @@
+#include <cstring>
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-struct Tnode {
-    int data;
-    Tnode *left;
-    Tnode *right;
+typedef char PlayerID;
+#define PLAYER_NIL  0
+#define PLAYER_X    'X'
+#define PLAYER_O    'O'
 
-    Tnode() {
-        left = nullptr;
-        right = nullptr;
-    }
-};
+PlayerID g_board[3][3];
+PlayerID g_players[] = { PLAYER_X, PLAYER_O };
+int g_turn = 0;
 
-class Tree {
-private:
-    Tnode *head;
-    int tsize;
-
-    void destroy(Tnode *leaf) {
-        if (leaf) {
-            destroy(leaf->right);
-            destroy(leaf->left);
-            delete leaf;
+bool is_full(void) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (g_board[i][j] == PLAYER_NIL) {
+                return false;
+            }
         }
     }
+    return true;
+}
 
-    void insert(int num, Tnode *leaf) {
-        if (num == leaf->data) {
-            return;
+void reset(void) {
+    g_turn = 0;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            g_board[i][j] = 0;
         }
-        if (num < leaf->data) {
-            if (leaf->left) {
-                insert(num, leaf->left);
+    }
+}
+
+void display_board(void) {
+    char display[8][8];
+    memset(display, ' ', sizeof(display));
+    for (int i = 0; i < 3; i++) {
+        int r = 2 * i + 2;
+        int c = 2 * i + 2;
+        display[0][r] = '0' + i + 1;
+        display[c][0] = '0' + i + 1;
+    }
+    for (int i = 0; i < 4; i++) {
+        int r = 2 * i + 1;
+        for (int j = 0; j < 7; j++) {
+            if (j % 2 == 0) {
+                display[r][j + 1] = '+';
             }
             else {
-                leaf->left = new Tnode;
-                leaf->left->data = num;
-            }
-        }
-        else if (num > leaf->data) {
-            if (leaf->right) {
-                insert(num, leaf->right);
-            }
-            else {
-                leaf->right = new Tnode;
-                leaf->right->data = num;
+                display[r][j + 1] = '-';
             }
         }
     }
-
-    bool search(int num, Tnode *leaf) {
-        if (leaf) {
-            if (num == leaf->data) {
-                return true;
-            }
-            else if (num < leaf->data) {
-                return search(num, leaf->left);
-            }
-            else {
-                return search(num, leaf->right);
+    for (int i = 0; i < 3; i++) {
+        int r = 2 * i + 2;
+        for (int j = 0; j < 7; j++) {
+            if (j % 2 == 0) {
+                display[r][j + 1] = '|';
             }
         }
-        else {
-            return false;
+    }
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            int r = 2 * i + 2;
+            int c = 2 * j + 2;
+            if (g_board[i][j] != PLAYER_NIL) {
+                display[r][c] = g_board[i][j];
+            }
         }
     }
-
-    /*private*/ void postOrderPrint(Tnode *leaf) {
-        if (!leaf) {
-            return;
+    cout << "Current board:" << endl;
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            cout << display[i][j];
         }
-        postOrderPrint(leaf->left);
-        postOrderPrint(leaf->right);
-        cout << ' ' << leaf->data << ' ';
+        cout << endl;
+    }
+}
+
+bool wins(PlayerID p) {
+    bool r[3];
+    for (int i = 0; i < 3; i++) {
+        r[i] = (g_board[i][0] == p) && (g_board[i][1] == p) && (g_board[i][2] == p);
     }
 
-    void size(Tnode *leaf) {
-        if (!leaf) {
-            return;
+    bool c[3];
+    for (int i = 0; i < 3; i++) {
+        c[i] = (g_board[0][i] == p) && (g_board[1][i] == p) && (g_board[2][i] == p);
+    }
+
+    bool d[2];
+    d[0] = (g_board[0][0] == p) && (g_board[1][1] == p) && (g_board[2][2] == p);
+    d[1] = (g_board[0][2] == p) && (g_board[1][1] == p) && (g_board[2][0] == p);
+
+    return r[0] || r[1] || r[2] || c[0] || c[1] || c[2] || d[0] || d[1];
+}
+
+PlayerID check_winner(void) {
+    if (wins(PLAYER_X)) {
+        return PLAYER_X;
+    }
+    if (wins(PLAYER_O)) {
+        return PLAYER_O;
+    }
+    return PLAYER_NIL;
+}
+
+void victory(PlayerID p) {
+    if (p == 0) {
+        cout << "Round draw" << endl;
+    }
+    else {
+        cout << p << " wins!" << endl;
+    }
+    reset();
+}
+
+bool mark(int r, int c, PlayerID p) {
+    if ((1 <= r) && (r <= 3) && (1 <= c) && (c <= 3)) {
+        r--;
+        c--;
+        if (g_board[r][c] == PLAYER_NIL) {
+            g_board[r][c] = p;
+            return true;
         }
-        size(leaf->left);
-        size(leaf->right);
-        tsize++;
     }
-
-public:
-    Tree() {
-        head = nullptr;
-    }
-
-    ~Tree() {
-        clear();
-    }
-
-    void insert(int num) {
-        if (!head) {
-            head = new Tnode;
-            head->data = num;
-            return;
-        }
-        insert(num, head);
-    }
-
-    void insert(int *arrnum, int size) {
-        for (int i = 0; i < size; i++) {
-            insert(arrnum[i]);
-        }
-    }
-
-    bool search(int num) {
-        return search(num, head);
-    }
-
-    /*public*/ void postOrderPrint() {
-        if (head) {
-            cout << '[';
-            postOrderPrint(head);
-            cout << "]\n";
-        }
-        else {
-            cout << "[ no items ]\n";
-        }
-    }
-
-    void clear() {
-        destroy(head);
-        head = nullptr;
-    }
-
-    int size() {
-        tsize = 0;
-        size(head);
-        return tsize;
-    }
-};
+    return false;
+}
 
 int main() {
-    Tree mytree;
-    int input[12] = { 57, 32, 78, 24, 48, 85, 39, 81, 96, 35, 43, 90 };
-    mytree.insert(input, 12);
-    mytree.postOrderPrint();
+    reset();
 
-    mytree.insert(81);
-    mytree.postOrderPrint();
+    cout << "Commands:" << endl;
+    cout << " mark R C - mark at row R column C" << endl;
+    cout << " exit - quit the game" << endl;
 
-    if (mytree.search(96)) {
-        cout << "96 exists in the tree\n";
+    bool running = true;
+    while (running) {
+        PlayerID winner = check_winner();
+        if (is_full()) {
+            victory(winner);
+        }
+        else {
+            if (winner != PLAYER_NIL) {
+                victory(winner);
+            }
+        }
+
+        display_board();
+        cout << "Current turn: " << g_players[g_turn] << endl;
+
+        cout << " $ ";
+        string cmd;
+        cin >> cmd;
+
+        if (cmd == "mark") {
+            int r, c;
+            cin >> r >> c;
+            if (mark(r, c, g_players[g_turn])) {
+                g_turn = (g_turn + 1) % 2;
+                cout << "Marked successfully" << endl;
+            }
+            else {
+                cout << "Failed to mark" << endl;
+            }
+        }
+        if (cmd == "exit") {
+            running = false;
+        }
     }
-    if (!mytree.search(100)) {
-        cout << "100 doesn't exist in the tree\n";
-    }
+    cout << "Bye" << endl;
 
-    cout << "Size of the tree is: " << mytree.size() << '\n';
-
-    mytree.clear();
-    mytree.postOrderPrint();
+    return 0;
 }

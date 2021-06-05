@@ -1,0 +1,13 @@
+while !isSorted(array):
+    shuffle (array)
+
+
+4 6 3 8 7
+
+6 3 7 8 4 <- iterasi 1
+7 8 6 4 3 <- iterasi 2
+4 6 7 3 8 <- iterasi 3
+...
+3 4 6 7 8 <- 
+iterasi n (hipotetis)
+
